@@ -88,7 +88,7 @@ public class FormActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("infoFirebase", "Error adding document", e);
+
                         Toast.makeText(FormActivity.this, "Error guardando momento :(.", Toast.LENGTH_LONG).show();
                         uploadButton.setEnabled(true);
                     }
