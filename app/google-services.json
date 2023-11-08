@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "998005125683",
+    "project_id": "timelinebel",
+    "storage_bucket": "timelinebel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998005125683:android:534fb93c308e7153b86946",
+        "android_client_info": {
+          "package_name": "com.example.ourstory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxMrOXOJ-7px7KE8j4YquFm3unEo4EY8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
