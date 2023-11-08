@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,7 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import org.w3c.dom.Text;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -35,9 +33,7 @@ public class FormActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    StorageReference imageRef = storageRef.child("img");
 
-    private ImageView imageView;
     private Button uploadButton;
     private Uri imageUri;
 
@@ -47,7 +43,7 @@ public class FormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_activity);
 
-        imageView = findViewById(R.id.imageView);
+        ImageView imageView = findViewById(R.id.imageView);
         uploadButton = findViewById(R.id.submitButton);
         Intent intent2 = getIntent();
         imageUri = Uri.parse(intent2.getStringExtra("imageUri"));
@@ -83,13 +79,16 @@ public class FormActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         uploadButton.setEnabled(true);
-                        Toast.makeText(FormActivity.this, "Momento guardado!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(FormActivity.this, "¡Momento guardado!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(view.getContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        Toast.makeText(FormActivity.this, "Error guardando momento :(.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(FormActivity.this, "Error guardando momento :(", Toast.LENGTH_LONG).show();
                         uploadButton.setEnabled(true);
                     }
                 });

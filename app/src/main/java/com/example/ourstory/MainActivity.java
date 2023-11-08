@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +21,55 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ConstraintLayout rootLayout = findViewById(R.id.rootLayout);
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(5) + 1;
+        //rootLayout.setBackgroundResource(R.drawable.image1);
+        switch (randomNumber) {
+            case 1:
+                rootLayout.setBackgroundResource(R.drawable.image1);
+                break;
+            case 2:
+                rootLayout.setBackgroundResource(R.drawable.image2);
+                break;
+            case 3:
+                rootLayout.setBackgroundResource(R.drawable.image3);
+                break;
+            case 4:
+                rootLayout.setBackgroundResource(R.drawable.image4);
+                break;
+            case 5:
+                rootLayout.setBackgroundResource(R.drawable.image5);
+                break;
+        }
+
     }
+
+    public void changeBackground(View view){
+        ConstraintLayout rootLayout = findViewById(R.id.rootLayout);
+        Random random = new Random();
+        int randomNumber = random.nextInt(5) + 1;
+        //rootLayout.setBackgroundResource(R.drawable.image1);
+        switch (randomNumber) {
+            case 1:
+                rootLayout.setBackgroundResource(R.drawable.image1);
+                break;
+            case 2:
+                rootLayout.setBackgroundResource(R.drawable.image2);
+                break;
+            case 3:
+                rootLayout.setBackgroundResource(R.drawable.image3);
+                break;
+            case 4:
+                rootLayout.setBackgroundResource(R.drawable.image4);
+                break;
+            case 5:
+                rootLayout.setBackgroundResource(R.drawable.image5);
+                break;
+        }
+    }
+
 
     public void goToTimeline(View view){
         Intent intent = new Intent(this, TimeLine.class);
@@ -40,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
             if (data != null) {
                 // Get the image URI
                 Uri selectedImageUri = data.getData();
-                TextView uriText = findViewById(R.id.uriText);
-                uriText.setText(selectedImageUri.toString());
                 Intent formIntent = new Intent(this, FormActivity.class);
                 formIntent.putExtra("imageUri", selectedImageUri.toString());
                 startActivity(formIntent);

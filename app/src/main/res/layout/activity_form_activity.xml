@@ -9,88 +9,128 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descripción"
+        android:fontFamily="@font/custom_font_normal"
+        android:text="@string/descripci_n"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.222" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="290dp"
-        android:layout_height="233dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:contentPadding="0dp"
+        app:contentPaddingBottom="0dp"
+        app:contentPaddingLeft="0dp"
+        app:contentPaddingRight="0dp"
+        app:contentPaddingTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:layout_constraintVertical_bias="0.79">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/imagetoupload"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registar momento"
+        android:layout_marginStart="50dp"
+        android:backgroundTint="#CF5D8F"
+        android:fontFamily="casual"
+        android:text="@string/guardar"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.575" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="#B30000"
+        android:fontFamily="casual"
+        android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toEndOf="@+id/submitButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.582"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:rippleColor="#D33232" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Título del momento"
+        android:fontFamily="@font/custom_font_normal"
+        android:text="@string/t_tulo"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.06" />
 
     <EditText
         android:id="@+id/momenttitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:height="48dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed-light"
+        android:hint="@string/t_tulo"
         android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.643"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <EditText
         android:id="@+id/momentdesc"
-        android:layout_width="229dp"
-        android:layout_height="200dp"
+        android:layout_width="251dp"
+        android:layout_height="198dp"
+        android:layout_marginEnd="5dp"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed-light"
         android:gravity="start|top"
+        android:hint="@string/descripci_n"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.719"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/momenttitle"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.098" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
