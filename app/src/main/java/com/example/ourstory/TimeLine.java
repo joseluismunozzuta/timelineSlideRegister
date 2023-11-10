@@ -1,6 +1,7 @@
 package com.example.ourstory;
 
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,11 @@ public class TimeLine extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
 
         WebView webView = findViewById(R.id.timeline);
-        webView.getSettings().setJavaScriptEnabled(true);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        webView.setDrawingCacheEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
         webView.loadUrl("https://timelinebeljose.netlify.app/");
     }
 }
