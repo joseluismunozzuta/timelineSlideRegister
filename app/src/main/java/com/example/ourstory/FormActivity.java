@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,12 +70,19 @@ public class FormActivity extends AppCompatActivity {
                 Map<String, Object> data = new HashMap<>();
                 TextView title = findViewById(R.id.momenttitle);
                 TextView description = findViewById(R.id.momentdesc);
+                DatePicker datePicker = findViewById(R.id.datePicker);
+                int year = datePicker.getYear();
+                int monthOfYear = datePicker.getMonth();
+                int dayOfMonth = datePicker.getDayOfMonth();
+                Calendar selectedCalendar = Calendar.getInstance();
+                selectedCalendar.set(year, monthOfYear, dayOfMonth);
+                Timestamp timestamp = new Timestamp(selectedCalendar.getTime());
                 String momentdesc = description.getText().toString();
                 String momentTitle = title.getText().toString();
                 data.put("title", momentTitle);
                 data.put("description", momentdesc);
                 data.put("imgUrl", imageUrl);
-                data.put("timestamp", new Timestamp(new Date()));
+                data.put("timestamp", timestamp);
 
                 db.collection("moments").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
