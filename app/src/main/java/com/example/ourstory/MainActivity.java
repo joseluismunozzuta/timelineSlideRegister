@@ -1,10 +1,13 @@
 package com.example.ourstory;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +47,23 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+        Button openSpotifyButton = findViewById(R.id.openSpotifyButton);
+        openSpotifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSpotifyPlaylist();
+            }
+        });
+
+    }
+
+    public void openSpotifyPlaylist() {
+
+        final String spotifyContent = "https://open.spotify.com/playlist/23URihMBXfJG9tvxpS9Bqs?si=bf6d9bfdcbae4206";
+        final String branchLink = "https://spotify.link/content_linking?~campaign=com.spotify.music&$deeplink_path=" + spotifyContent + "&$fallback_url=" + spotifyContent;
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(branchLink));
+        startActivity(intent);
     }
 
     public void changeBackground(View view){
